@@ -7,15 +7,24 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <DataGrid x:Name="gridLekarze" HorizontalAlignment="Left" Height="143" Margin="10,267,0,0" VerticalAlignment="Top" Width="750"/>
-        <Label Content="Lekarz" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Microsoft Tai Le"/>
-        <TextBox x:Name="txtLekarz" HorizontalAlignment="Left" Height="23" Margin="108,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontSize="16" FontFamily="Microsoft Tai Le"/>
-        <Label Content="Specjalizacja" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Microsoft Tai Le"/>
-        <TextBox x:Name="txtSpecjalizacja" HorizontalAlignment="Left" Height="23" Margin="108,38,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontSize="16" FontFamily="Microsoft Tai Le"/>
-        <Label Content="Kwalifikacje" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Microsoft Tai Le"/>
-        <TextBox x:Name="txtKwalifikacje" HorizontalAlignment="Left" Height="23" Margin="108,66,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontSize="16" FontFamily="Microsoft Tai Le"/>
+        <DataGrid x:Name="gridLekarze" HorizontalAlignment="Left" Height="143" Margin="10,267,0,0" VerticalAlignment="Top" Width="551" SelectionChanged="gridLekarze_SelectionChanged"/>
+        <Label Content="Lekarz" HorizontalAlignment="Left" Margin="10,13,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Microsoft Tai Le"/>
+        <TextBox x:Name="txtLekarz" HorizontalAlignment="Left" Height="23" Margin="108,13,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontSize="16" FontFamily="Microsoft Tai Le"/>
+        <Label Content="Specjalizacja" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Microsoft Tai Le"/>
+        <TextBox x:Name="txtSpecjalizacja" HorizontalAlignment="Left" Height="23" Margin="108,42,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontSize="16" FontFamily="Microsoft Tai Le"/>
+        <Label Content="Kwalifikacje" HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Microsoft Tai Le"/>
+        <TextBox x:Name="txtKwalifikacje" HorizontalAlignment="Left" Height="23" Margin="108,69,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontSize="16" FontFamily="Microsoft Tai Le"/>
         <Button x:Name="btnDodajLekarza" Click="btnDodajLekarza_Click" Content="Dodaj" HorizontalAlignment="Left" Margin="153,106,0,0" VerticalAlignment="Top" Width="75" FontFamily="Microsoft New Tai Lue" FontSize="16"/>
         <Button x:Name="btnZaladujLekarzy" Click="btnZaladujLekarzy_Click" Content="Aktualizuj liste" HorizontalAlignment="Left" Margin="10,238,0,0" VerticalAlignment="Top" Width="202" FontFamily="Microsoft New Tai Lue" FontSize="16"/>
+        <Button x:Name="btnZapiszZmiany" Click="btnZapiszZmiany_Click" Content="Zapisz Zmiany" HorizontalAlignment="Left" Margin="582,386,0,0" VerticalAlignment="Top" Width="202" FontFamily="Microsoft New Tai Lue" FontSize="16"/>
+        <Label Content="Lekarz" HorizontalAlignment="Left" Margin="566,290,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Microsoft Tai Le"/>
+        <TextBox x:Name="txtLekarzZmiana" HorizontalAlignment="Left" Height="23" Margin="664,290,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontSize="16" FontFamily="Microsoft Tai Le"/>
+        <Label Content="Specjalizacja" HorizontalAlignment="Left" Margin="566,318,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Microsoft Tai Le"/>
+        <TextBox x:Name="txtSpecjalizacjaZmiana" HorizontalAlignment="Left" Height="23" Margin="664,319,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontSize="16" FontFamily="Microsoft Tai Le"/>
+        <Label Content="Kwalifikacje" HorizontalAlignment="Left" Margin="566,346,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Microsoft Tai Le"/>
+        <TextBox x:Name="txtKwalifikacjeZmiana" HorizontalAlignment="Left" Height="23" Margin="664,346,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontSize="16" FontFamily="Microsoft Tai Le"/>
+
+
 
     </Grid>
 </Window>

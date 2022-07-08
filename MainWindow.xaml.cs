@@ -24,14 +24,23 @@ namespace AKKK
         {
             InitializeComponent();
 
+            refreshGrid();
+        }
+
+        public void refreshGrid()
+        {
             SzpitalDBEntities db = new SzpitalDBEntities();
             var lekarze = from l in db.Lekarzs
+                          select l;
+                          /*
                           select new
                           {
+                              ID = l.Id,
                               NazwiskoLekarza = l.Imie_Nazwisko,
                               Specjalizacja = l.Specjalizacja,
                               Kwalifikacje = l.Kwalifikacje
                           };
+                          
 
             foreach (var item in lekarze)
             {
@@ -39,6 +48,7 @@ namespace AKKK
                 Console.WriteLine(item.Kwalifikacje);
                 Console.WriteLine(item.Specjalizacja);
             }
+            */
             this.gridLekarze.ItemsSource = lekarze.ToList();
         }
 
@@ -53,13 +63,34 @@ namespace AKKK
             };
             db.Lekarzs.Add(lekarzObiekt);
             db.SaveChanges();
+            refreshGrid();
         }
 
         private void btnZaladujLekarzy_Click(object sender, RoutedEventArgs e)
         {
+            refreshGrid();
+        }
+
+        private void gridLekarze_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+            if(this.gridLekarze.SelectedItems.Count >= 0 && this.gridLekarze.SelectedIndex >= 0) { 
+                if(this.gridLekarze.SelectedItems[0].GetType() == typeof(Lekarz))
+                {
+                    Lekarz l = (Lekarz)this.gridLekarze.SelectedItems[0];
+                    this.txtLekarzZmiana.Text = l.Imie_Nazwisko;
+                    this.txtSpecjalizacjaZmiana.Text = l.Specjalizacja;
+                    this.txtKwalifikacjeZmiana.Text = l.Kwalifikacje;
+                }
+            }
+        }
+
+        private void btnZapiszZmiany_Click(object sender, RoutedEventArgs e)
+        {
             SzpitalDBEntities db = new SzpitalDBEntities();
 
-            this.gridLekarze.ItemsSource = db.Lekarzs.ToList();
+           // var r = from d in db.Lekarzs
+            //        where d.Id == 1
         }
     }
 }
