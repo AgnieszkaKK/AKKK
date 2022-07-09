@@ -29,9 +29,9 @@ namespace AKKK
 
         public void refreshGrid()
         {
-            SzpitalDBEntities db = new SzpitalDBEntities();
-            var lekarze = from l in db.Lekarzs
-                          select l;
+            SzpitalMedDBEntities db = new SzpitalMedDBEntities();
+            var wizyty = from w in db.Widok_Wizyty
+                          select w;
             /*
             select new
             {
@@ -49,12 +49,12 @@ foreach (var item in lekarze)
   Console.WriteLine(item.Specjalizacja);
 }
 */
-            this.gridLekarze.ItemsSource = lekarze.ToList();
+            this.gridLekarze.ItemsSource = wizyty.ToList();
         }
 
         private void btnDodajLekarza_Click(object sender, RoutedEventArgs e)
         {
-            SzpitalDBEntities db = new SzpitalDBEntities();
+            SzpitalMedDBEntities db = new SzpitalMedDBEntities();
             Lekarz lekarzObiekt = new Lekarz()
             {
                 Imie_Nazwisko = txtLekarz.Text,
@@ -89,7 +89,7 @@ foreach (var item in lekarze)
 
         private void btnZapiszZmiany_Click(object sender, RoutedEventArgs e)
         {
-            SzpitalDBEntities db = new SzpitalDBEntities();
+            SzpitalMedDBEntities db = new SzpitalMedDBEntities();
 
             var r = from l in db.Lekarzs
                     where l.Id == this.aktualizacjaIDLekarza
@@ -116,7 +116,7 @@ foreach (var item in lekarze)
 
             if (MsgBoxRezultat == MessageBoxResult.Yes)
             {
-                SzpitalDBEntities db = new SzpitalDBEntities();
+                SzpitalMedDBEntities db = new SzpitalMedDBEntities();
                 var r = from l in db.Lekarzs
                         where l.Id == this.aktualizacjaIDLekarza
                         select l;

@@ -14,9 +14,18 @@ namespace AKKK
     
     public partial class Lekarz
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Lekarz()
+        {
+            this.Wizytas = new HashSet<Wizyta>();
+        }
+    
         public int Id { get; set; }
         public string Imie_Nazwisko { get; set; }
         public string Specjalizacja { get; set; }
         public string Kwalifikacje { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Wizyta> Wizytas { get; set; }
     }
 }

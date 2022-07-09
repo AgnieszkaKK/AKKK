@@ -15,8 +15,7 @@ namespace AKKK
     public partial class Wizyta
     {
         public int Id { get; set; }
-        public System.DateTime CzasRozpoczecia { get; set; }
-        public System.DateTime CzasZakonczenia { get; set; }
+        public System.DateTime Data { get; set; }
         public int Pacjent { get; set; }
         public int Sala { get; set; }
         public int Lekarz { get; set; }

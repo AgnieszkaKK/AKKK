@@ -14,8 +14,7 @@ namespace AKKK
     
     public partial class Widok_Wizyty
     {
-        public System.DateTime Czas_rozpoczecia { get; set; }
-        public System.DateTime Czas_zakonczenia { get; set; }
+        public System.DateTime Data { get; set; }
         public string Imie { get; set; }
         public string Nazwisko { get; set; }
         public string NumerSali { get; set; }
