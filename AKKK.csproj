@@ -84,24 +84,52 @@
     </ApplicationDefinition>
     <Compile Include="Lekarz.cs">
       <DependentUpon>ZarzadzanieSzpitalneModel.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="Szpital.xaml.cs">
-      <DependentUpon>Szpital.xaml</DependentUpon>
+    <Compile Include="Pacjent.cs">
+      <DependentUpon>ZarzadzanieWizytamiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sala.cs">
+      <DependentUpon>ZarzadzanieWizytamiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Widok_Wizyty.cs">
+      <DependentUpon>ZarzadzanieWizytamiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Wizyta.cs">
+      <DependentUpon>ZarzadzanieWizytamiModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ZarzadzanieSzpitalneModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ZarzadzanieSzpitalneModel.Context.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="ZarzadzanieSzpitalneModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ZarzadzanieSzpitalneModel.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="ZarzadzanieSzpitalneModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ZarzadzanieSzpitalneModel.edmx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="ZarzadzanieWizytamiModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ZarzadzanieWizytamiModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ZarzadzanieWizytamiModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ZarzadzanieWizytamiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ZarzadzanieWizytamiModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ZarzadzanieWizytamiModel.edmx</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -116,10 +144,6 @@
       <SubType>Code</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
-    <Page Include="Szpital.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -147,9 +171,18 @@
     <EntityDeploy Include="ZarzadzanieSzpitalneModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ZarzadzanieSzpitalneModel.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EntityDeploy>
     <None Include="ZarzadzanieSzpitalneModel.edmx.diagram">
       <DependentUpon>ZarzadzanieSzpitalneModel.edmx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <EntityDeploy Include="ZarzadzanieWizytamiModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ZarzadzanieWizytamiModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ZarzadzanieWizytamiModel.edmx.diagram">
+      <DependentUpon>ZarzadzanieWizytamiModel.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -157,21 +190,33 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="SzpitalDB.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="SzpitalDB_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>SzpitalDB.mdf</DependentUpon>
     </Content>
     <Content Include="ZarzadzanieSzpitalneModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ZarzadzanieSzpitalneModel.edmx</DependentUpon>
       <LastGenOutput>ZarzadzanieSzpitalneModel.Context.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="ZarzadzanieSzpitalneModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ZarzadzanieSzpitalneModel.edmx</DependentUpon>
       <LastGenOutput>ZarzadzanieSzpitalneModel.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ZarzadzanieWizytamiModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ZarzadzanieWizytamiModel.edmx</DependentUpon>
+      <LastGenOutput>ZarzadzanieWizytamiModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ZarzadzanieWizytamiModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ZarzadzanieWizytamiModel.edmx</DependentUpon>
+      <LastGenOutput>ZarzadzanieWizytamiModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
