@@ -162,10 +162,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="SzpitalDB.mdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="SzpitalDB_log.ldf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>SzpitalDB.mdf</DependentUpon>
     </Content>
     <Content Include="WizytyMedModel.Context.tt">

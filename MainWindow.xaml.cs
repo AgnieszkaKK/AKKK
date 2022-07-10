@@ -67,34 +67,57 @@ foreach (var item in lekarze)
             db.SaveChanges();
             refreshGrid();
         }
+        private void btnDodajPacjenta_Click(object sender, RoutedEventArgs e)
+        {
+            SzpitalMedDBEntities db = new SzpitalMedDBEntities();
+            Pacjent pacjentObj = new Pacjent()
+            {
+                Imie = txtImiePacjenta.Text,
+                Nazwisko = txtNazwiskoPacjenta.Text,
+                Telefon = txtTelefonPacjenta.Text
 
+            };
+
+            db.Pacjents.Add(pacjentObj);
+            db.SaveChanges();
+            refreshGrid();
+            refreshComboBoxPacjenci();
+
+            txtImiePacjenta.Text = "";
+            txtNazwiskoPacjenta.Text = "";
+            txtTelefonPacjenta.Text = "";
+        }
+        /*
         private void btnZaladujLekarzy_Click(object sender, RoutedEventArgs e)
         {
             refreshGrid();
         }
-        private int aktualizacjaIDLekarza = 0;
+        private int aktualizacjaIDWizyty = 0;
         private void gridLekarze_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
             if (this.gridLekarze.SelectedItems.Count >= 0 && this.gridLekarze.SelectedIndex >= 0)
             {
-                if (this.gridLekarze.SelectedItems[0].GetType() == typeof(Lekarz))
+                if (this.gridLekarze.SelectedItems[0].GetType() == typeof(Wizyta))
                 {
-                    Lekarz l = (Lekarz)this.gridLekarze.SelectedItems[0];
+                    Wizyta w = (Wizyta)this.gridLekarze.SelectedItems[0];
+                     this.txtData = (DateTime)ww.Data;
+                    this.txtImiePacjenta = ww.Imie;
                     this.txtLekarzZmiana.Text = l.Imie_Nazwisko;
                     this.txtSpecjalizacjaZmiana.Text = l.Specjalizacja;
                     this.txtKwalifikacjeZmiana.Text = l.Kwalifikacje;
-                    this.aktualizacjaIDLekarza = l.Id;
+                    
+                    this.aktualizacjaIDWizyty = w.Id;
                 }
             }
-        }
-
+        }/*
+        /*
         private void btnZapiszZmiany_Click(object sender, RoutedEventArgs e)
         {
             SzpitalMedDBEntities db = new SzpitalMedDBEntities();
 
             var r = from l in db.Lekarzs
-                    where l.Id == this.aktualizacjaIDLekarza
+                    where l.Id == this.aktualizacjaIDWizyty
                     select l;
             Lekarz obiekt = r.SingleOrDefault();
 
@@ -106,32 +129,36 @@ foreach (var item in lekarze)
                 db.SaveChanges();
                 refreshGrid();
             }
-        }
+        }*/
 
-        private void btnUsunZaznaczonegoLekarz(object sender, RoutedEventArgs e)
+        private void btnUsunZaznaczonaWizyte_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult MsgBoxRezultat = MessageBox.Show("Czy na pewno chcesz usunąć lekarza z listy?",
-                "Usuń lekarza",
+            MessageBoxResult MsgBoxRezultat = MessageBox.Show("Czy na pewno chcesz usunąć wizytę z listy?",
+                "Usuń wizytę",
                 MessageBoxButton.YesNo,
                 MessageBoxImage.Warning,
                 MessageBoxResult.No);
 
             if (MsgBoxRezultat == MessageBoxResult.Yes)
             {
+
+                DataGrid x = (DataGrid)this.FindName("gridLekarze");
+                var index = x.SelectedIndex;
+
                 SzpitalMedDBEntities db = new SzpitalMedDBEntities();
-                var r = from l in db.Lekarzs
-                        where l.Id == this.aktualizacjaIDLekarza
-                        select l;
-                Lekarz obiekt = r.SingleOrDefault();
+                var delW = from w in db.Wizytas
+                        where w.Id == index + 1
+                        select w;
+                Wizyta obiekt = delW.SingleOrDefault();
 
                 if (obiekt != null)
                 {
-                    db.Lekarzs.Remove(obiekt);
+                    db.Wizytas.Remove(obiekt);
                     db.SaveChanges();
-                    refreshGrid();
+                    
                 }
             }
-
+            refreshGrid();
         }
 
         private void SalaCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -169,16 +196,23 @@ foreach (var item in lekarze)
         }
         private void PacjentCB_Loaded(object sender, RoutedEventArgs e)
         {
+            /*
             SzpitalMedDBEntities db = new SzpitalMedDBEntities();
             var Pacjenci = (from p in db.Pacjents select p.Nazwisko);
-                
-                
-                //from p in db.Pacjents
-                  //        select new { p.Imie, p.Nazwisko };
 
             var comboBox = sender as ComboBox;
             comboBox.ItemsSource = Pacjenci.ToList();
             comboBox.SelectedIndex = 0;
+            */
+            refreshComboBoxPacjenci();
+        }
+        public void refreshComboBoxPacjenci()
+        {
+            PacjentCB.ItemsSource = "";
+            SzpitalMedDBEntities db = new SzpitalMedDBEntities();
+            var Pacjenci = (from p in db.Pacjents select p.Nazwisko);
+            PacjentCB.ItemsSource = Pacjenci.ToList();
+            PacjentCB.SelectedIndex = 0;
         }
     }
 }

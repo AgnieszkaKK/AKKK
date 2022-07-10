@@ -6,29 +6,29 @@
         xmlns:local="clr-namespace:AKKK"
         xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="AKKK.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="550" Width="1200">
+        Title="Rezerwacje wizyt lekarskich" Height="530" Width="700">
     <Grid Margin="0,0,-0.4,-4">
-        <DataGrid x:Name="gridLekarze" HorizontalAlignment="Left" Height="170" Margin="10,300,0,0" VerticalAlignment="Top" Width="551" SelectionChanged="gridLekarze_SelectionChanged"/>
-        <Label Content="Data" HorizontalAlignment="Left" Margin="10,49,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Microsoft Tai Le"/>
+        <DataGrid x:Name="gridLekarze" HorizontalAlignment="Left" Height="170" Margin="7,253,0,0" VerticalAlignment="Top" Width="551" />
+        <Label Content="Data" HorizontalAlignment="Left" Margin="42,50,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Microsoft Tai Le"/>
         <DatePicker x:Name="txtData" HorizontalAlignment="Left" Margin="109,50,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.248,0.009" Width="119"/>
-        <Label Content="Pacjent" HorizontalAlignment="Left" Margin="10,77,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Microsoft Tai Le"/>
-        <Button x:Name="btnDodajLekarza" Click="btnDodajLekarza_Click" Content="Dodaj" HorizontalAlignment="Left" Margin="153,184,0,0" VerticalAlignment="Top" Width="75" FontFamily="Microsoft New Tai Lue" FontSize="16"/>
-        <Button x:Name="btnZaladujLekarzy" Click="btnZaladujLekarzy_Click" Content="Aktualizuj liste" HorizontalAlignment="Left" Margin="11,271,0,0" VerticalAlignment="Top" Width="202" FontFamily="Microsoft New Tai Lue" FontSize="16"/>
-        <Button x:Name="btnZapiszZmiany" Click="btnZapiszZmiany_Click" Content="Zapisz Zmiany" HorizontalAlignment="Left" Margin="920,443,0,0" VerticalAlignment="Top" Width="202" FontFamily="Microsoft New Tai Lue" FontSize="16"/>
-        <Label Content="Lekarz" HorizontalAlignment="Left" Margin="904,347,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Microsoft Tai Le"/>
-        <TextBox x:Name="txtLekarzZmiana" HorizontalAlignment="Left" Height="23" Margin="1002,346,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontSize="16" FontFamily="Microsoft Tai Le"/>
-        <Label Content="Specjalizacja" HorizontalAlignment="Left" Margin="904,375,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Microsoft Tai Le"/>
-        <TextBox x:Name="txtSpecjalizacjaZmiana" HorizontalAlignment="Left" Height="23" Margin="1002,376,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontSize="16" FontFamily="Microsoft Tai Le"/>
-        <Label Content="Kwalifikacje" HorizontalAlignment="Left" Margin="904,403,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Microsoft Tai Le"/>
-        <TextBox x:Name="txtKwalifikacjeZmiana" HorizontalAlignment="Left" Height="23" Margin="1002,402,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontSize="16" FontFamily="Microsoft Tai Le"/>
-        <Button x:Name="btnUsunZaznaczonegoLekarza" Click="btnUsunZaznaczonegoLekarz" Content="Usun Zaznaczonego Lekarza" HorizontalAlignment="Left" Margin="10,480,0,0" VerticalAlignment="Top" Width="218" FontFamily="Microsoft New Tai Lue" FontSize="16"/>
-        <Label Content="Sala" HorizontalAlignment="Left" Margin="11,115,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Microsoft Tai Le"/>
-        <Label Content="Lekarz" HorizontalAlignment="Left" Margin="11,143,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Microsoft Tai Le"/>
-        <ComboBox x:Name="SalaCB" HorizontalAlignment="Left" Margin="109,116,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="SalaCB_SelectionChanged" Loaded="SalaCB_Loaded">
+        <Label Content="Pacjent" HorizontalAlignment="Left" Margin="24,76,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Microsoft Tai Le"/>
+        <Button x:Name="btnDodajLekarza" Click="btnDodajLekarza_Click" Content="Dodaj" HorizontalAlignment="Left" Margin="153,182,0,0" VerticalAlignment="Top" Width="75" FontFamily="Microsoft New Tai Lue" FontSize="16" Height="26"/>
+        <Button x:Name="btnUsunZaznaczonaWizyte" Click="btnUsunZaznaczonaWizyte_Click" Content="Usun zaznaczoną wizytę" HorizontalAlignment="Left" Margin="7,439,0,0" VerticalAlignment="Top" Width="218" FontFamily="Microsoft New Tai Lue" FontSize="16"/>
+        <Label Content="Sala" HorizontalAlignment="Left" Margin="42,107,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Microsoft Tai Le" RenderTransformOrigin="1.078,0.954"/>
+        <Label Content="Lekarz" HorizontalAlignment="Left" Margin="24,141,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Microsoft Tai Le"/>
+        <ComboBox x:Name="SalaCB" HorizontalAlignment="Left" Margin="109,111,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="SalaCB_SelectionChanged" Loaded="SalaCB_Loaded">
         </ComboBox>
         <ComboBox x:Name="LekarzCB" HorizontalAlignment="Left" Margin="109,143,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="LekarzCB_SelectionChanged" Loaded="LekarzCB_Loaded"/>
-        <ComboBox x:Name="PacjentCB" HorizontalAlignment="Left" Margin="108,85,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="PacjentCB_SelectionChanged" Loaded="PacjentCB_Loaded"/>
-        <Label Content="Dodaj wizte" HorizontalAlignment="Left" Margin="15,10,0,0" VerticalAlignment="Top" Width="213" FontSize="16"/>
+        <ComboBox x:Name="PacjentCB" HorizontalAlignment="Left" Margin="109,81,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="PacjentCB_SelectionChanged" Loaded="PacjentCB_Loaded"/>
+        <Label Content="Dodaj wizytę" HorizontalAlignment="Left" Margin="15,10,0,0" VerticalAlignment="Top" Width="213" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Imię" HorizontalAlignment="Left" Margin="384,50,0,0" VerticalAlignment="Top" Width="49" FontSize="16" FontFamily="Microsoft Tai Le"/>
+        <Label Content="Nazwisko" HorizontalAlignment="Left" Margin="349,76,0,0" VerticalAlignment="Top" Width="84" FontSize="16" FontFamily="Microsoft Tai Le"/>
+        <Label Content="Telefon" HorizontalAlignment="Left" Margin="360,107,0,0" VerticalAlignment="Top" Width="73" FontSize="16" FontFamily="Microsoft Tai Le"/>
+        <TextBox x:Name="txtImiePacjenta" HorizontalAlignment="Left" Height="23" Margin="437,52,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtNazwiskoPacjenta" HorizontalAlignment="Left" Height="23" Margin="438,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtTelefonPacjenta" HorizontalAlignment="Left" Height="23" Margin="438,111,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Dodaj pacjenta" HorizontalAlignment="Left" Margin="372,10,0,0" VerticalAlignment="Top" Width="186" FontSize="18" FontWeight="Bold"/>
+        <Button x:Name="btnPacjenta" Click="btnDodajPacjenta_Click" Content="Dodaj" HorizontalAlignment="Left" Margin="438,143,0,0" VerticalAlignment="Top" Width="75" FontFamily="Microsoft New Tai Lue" FontSize="16"/>
 
     </Grid>
 </Window>
