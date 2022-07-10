@@ -55,13 +55,15 @@ foreach (var item in lekarze)
         private void btnDodajLekarza_Click(object sender, RoutedEventArgs e)
         {
             SzpitalMedDBEntities db = new SzpitalMedDBEntities();
-            Lekarz lekarzObiekt = new Lekarz()
+            Wizyta WizytyObj = new Wizyta()
             {
-                Imie_Nazwisko = txtLekarz.Text,
-                Kwalifikacje = txtKwalifikacje.Text,
-                Specjalizacja = txtSpecjalizacja.Text
+                Data = (DateTime)txtData.SelectedDate,
+                Pacjent = PacjentCB.SelectedIndex+1,
+                Sala = SalaCB.SelectedIndex + 1,
+                Lekarz = LekarzCB.SelectedIndex + 1
             };
-            db.Lekarzs.Add(lekarzObiekt);
+          
+            db.Wizytas.Add(WizytyObj);
             db.SaveChanges();
             refreshGrid();
         }
@@ -130,6 +132,53 @@ foreach (var item in lekarze)
                 }
             }
 
+        }
+
+        private void SalaCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void SalaCB_Loaded(object sender, RoutedEventArgs e)
+        {
+            SzpitalMedDBEntities db = new SzpitalMedDBEntities();
+            var Sale = from s in db.Salas
+                         select s.NumerSali;
+
+            var comboBox = sender as ComboBox;
+            comboBox.ItemsSource = Sale.ToList();
+            comboBox.SelectedIndex = 0;
+        }
+        private void LekarzCB_Loaded(object sender, RoutedEventArgs e)
+        {
+            SzpitalMedDBEntities db = new SzpitalMedDBEntities();
+            var Lekarze = from l in db.Lekarzs
+                       select l.Imie_Nazwisko;
+
+            var comboBox = sender as ComboBox;
+            comboBox.ItemsSource = Lekarze.ToList();
+            comboBox.SelectedIndex = 0;
+        }
+        private void LekarzCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+        private void PacjentCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+        private void PacjentCB_Loaded(object sender, RoutedEventArgs e)
+        {
+            SzpitalMedDBEntities db = new SzpitalMedDBEntities();
+            var Pacjenci = (from p in db.Pacjents select p.Nazwisko);
+                
+                
+                //from p in db.Pacjents
+                  //        select new { p.Imie, p.Nazwisko };
+
+            var comboBox = sender as ComboBox;
+            comboBox.ItemsSource = Pacjenci.ToList();
+            comboBox.SelectedIndex = 0;
         }
     }
 }
